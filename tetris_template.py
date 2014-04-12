@@ -441,9 +441,12 @@ class Tetris():
              at y = 0 and x = int(self.BOARD_WIDTH/2)
             return the shape
         '''
-       	shape= I_shape(Point(3,1))
-       	
-        #YOUR CODE HERE
+       # shape= I_shape(Point(3,1))
+        position = random.randint(0,len(self.SHAPES)-1)
+        print position
+        valueshape = self.SHAPES[position]       	
+        shape = valueshape(Point(3,1))
+       #YOUR CODE HERE
         return shape
     
     def animate_shape(self):
