@@ -307,9 +307,11 @@ class Board():
             3. otherwise return True
             
         '''
+        if ( (X >= 0 and X< self.width) and ( Y>=0 and Y< self.height ) ):
             
         #YOUR CODE HERE
-        pass
+        else:
+         return false
 
     def add_shape(self, shape):
         ''' Parameter: shape - type:Shape
@@ -322,9 +324,12 @@ class Board():
             get the list of blocks
             
         '''
-        
-        #YOUR CODE HERE
-        pass        
+               
+          blocks:shape.get_blocks
+          for (block in blocks):
+            grid [(block.x, block.y)] = block
+        #YOUR CODE HERE 
+                
 
 
     def delete_row(self, y):
@@ -352,9 +357,13 @@ class Board():
             otherwise return True
             
         '''
-        
-        #YOUR CODE HERE
-        pass
+        i =0
+        full =True
+        for i in self.WIDTH and full:
+          if (grid.get(i,y),0) == 0:
+            full= False
+        return full 
+              
     
     def move_down_rows(self, y_start):
         ''' Parameters: y_start - type:int                        
@@ -432,7 +441,7 @@ class Tetris():
         self.board.draw_shape(self.current_shape);
         # For Step 9:  animate the shape!
         ####  YOUR CODE HERE ####
-
+        self.animate_shape()
 
     def create_new_shape(self):
         ''' Return value: type: Shape
@@ -463,19 +472,31 @@ class Tetris():
 
             Move the current shape in the direction specified by the parameter:
             First check if the shape can move. If it can, move it and return True
-            Otherwise if the direction we tried to move was 'Down',
+           
+
+        '''
+        if (self.current_shape.can_move()):
+           print A
+           self.current_shape.move()
+           return true
+        elif (key == "Down"):
+           print "down"
+           return false 
+        ''' Otherwise if the direction we tried to move was 'Down',
             1. add the current shape to the board
             2. remove the completed rows if any 
             3. create a new random shape and set current_shape attribute
             4. If the shape cannot be drawn on the board, display a
                game over message
 
-            return False
-
-        '''
-        
-        #YOUR CODE HERE
-        pass
+           return False
+        '''           
+           self.add_shape(self.current_shape)
+           self.remove_complete_rows
+           self.current_shape=self.create_new_shape
+           if(not self.board.draw_shape(self.current_shape)):
+              self.board.game_over
+            
 
     def do_rotate(self):
         ''' Checks if the current_shape can be rotated and
@@ -499,10 +520,12 @@ class Tetris():
             if the user presses the 'Up' arrow key ,
                 the shape should rotate.
 
+
         '''
             
         #YOUR CODE HERE
-        key = event.keysym
+        key = event.keysym             
+
         print key
        
 ################################################################
